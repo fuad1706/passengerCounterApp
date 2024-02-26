@@ -1,4 +1,4 @@
-button {
+/* button {
     border: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -11,4 +11,15 @@ button {
 
 #increment-btn {
     background: darkred;
+} */
+
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+    text-align: center;
+    color: rgb(255, 0, 0);
+}
+
+h1{
+    color: gold;
 }
