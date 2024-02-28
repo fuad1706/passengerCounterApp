@@ -110,28 +110,38 @@
 // } else {
 // console.log("Not eligible, you have already gotten one");
 // }
-for(let i = 10; i < 101; i += 10){
-  console.log(i)
-}
-let messages = [
-  "Hey, how's it going?",        
-  "I'm great, thank you! How about you?",
-  "All good. Been working on my portfolio lately.",
-  "Same here!",
-  "Great to hear",
-  "🙌"
-]
-for( let i = 0; i < messages.length; i += 1){
-  console.log(messages[i])
-}
+// let sentence = ["Hello", "my", "name", "is", "Per"];
+// let greetingEl = document.getElementById("greeting-el");
+//
+// for (let i = 0; i < sentence.length; i++) {
+// greetingEl.textContent += sentence[i] + " ";
+// }
+//
+// for (let i = 10; i < 101; i += 10) {
+// console.log(i);
+// }
+// let messages = [
+// "Hey, how's it going?",
+// "I'm great, thank you! How about you?",
+// "All good. Been working on my portfolio lately.",
+// "Same here!",
+// "Great to hear",
+// "🙌",
+// ];
+// for (let i = 0; i < messages.length; i += 1) {
+// console.log(messages[i]);
+// }
+//
+// let cardss = [7, 3, 9];
+//
+// for (let i = 0; i < cardss.length; i += 1) {
+// console.log(cardss[i]);
+// }
 
-
-
-
-let firstCard = 10;
-let secondCard = 7;
+let firstCard = getRandomCard();
+let secondCard = getRandomCard();
 let sum = firstCard + secondCard;
-let cards = [firstCard + secondCard];
+let cards = [firstCard, secondCard];
 //sum += 4;
 let hasBlackJack = false;
 let isAlive = true;
@@ -141,11 +151,18 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardEl = document.getElementById("card-el");
 
+function getRandomCard() {
+  return Math.floor(Math.random() * 13) + 1;
+}
+
 function startGame() {
   renderGame();
 }
 function renderGame() {
-  cardEl.textContent = "Cards: " + cards[0] + " " + cards[1];
+  cardEl.textContent = "Cards: ";
+  for (let i = 0; i < cards.length; i++) {
+    cardEl.textContent += cards[i] + " ";
+  }
   sumEl.textContent = "Sum: " + sum;
   if (sum <= 20) {
     message = "Do you want to draw a new card?";
@@ -160,7 +177,7 @@ function renderGame() {
 }
 function newCard() {
   console.log("Drawing a new card from the deck");
-  let card = 7;
+  let card = getRandomCard();
   sum += card;
   cards.push(card);
   renderGame();
@@ -173,3 +190,13 @@ function newCard() {
 // console.log(3 >= 3)   // false
 // console.log(11 <= 11) // false
 // console.log(3 <= 2)   // false
+
+// let randomNumber = Math.floor( Math.random() * 6 ) + 1
+//
+// console.log(randomNumber)
+
+// function rollDice() {
+// let randomNumber = Math.floor(Math.random() * 6) + 1;
+// return randomNumber;
+// }
+// console.log(rollDice());
