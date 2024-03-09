@@ -138,24 +138,42 @@
 // console.log(cardss[i]);
 // }
 
-let firstCard = getRandomCard();
-let secondCard = getRandomCard();
-let sum = firstCard + secondCard;
-let cards = [firstCard, secondCard];
+let sum = 0;
+let cards = [];
 //sum += 4;
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 let cardEl = document.getElementById("card-el");
 
+let player = {
+  name: "Per",
+  chips: 145,
+};
+
+let playerEl = document.getElementById("player-el");
+playerEl.textContent = player.name + ": $" + player.chips;
+
 function getRandomCard() {
-  return Math.floor(Math.random() * 13) + 1;
+  let randomNumber = Math.floor(Math.random() * 13) + 1;
+  if (randomNumber > 10) {
+    return 10;
+  } else if (randomNumber === 1) {
+    return 11;
+  } else {
+    return randomNumber;
+  }
 }
 
 function startGame() {
+  isAlive = true;
+  let firstCard = getRandomCard();
+  let secondCard = getRandomCard();
+  cards = [firstCard, secondCard];
+  sum = firstCard + secondCard;
   renderGame();
 }
 function renderGame() {
@@ -176,11 +194,12 @@ function renderGame() {
   messageEl.textContent = message;
 }
 function newCard() {
-  console.log("Drawing a new card from the deck");
-  let card = getRandomCard();
-  sum += card;
-  cards.push(card);
-  renderGame();
+  if (isAlive === true && hasBlackJack === false) {
+    let card = getRandomCard();
+    sum += card;
+    cards.push(card);
+    renderGame();
+  }
 }
 
 // console.log(4 === 3)  // false
@@ -200,3 +219,65 @@ function newCard() {
 // return randomNumber;
 // }
 // console.log(rollDice());
+
+// let likesDocumentaries = true;
+// let likesStartups = false;
+//
+// if (likesDocumentaries === true || likesStartups === false) {
+// recommendMovie();
+// }
+// function recommendMovie() {
+// console.log("Hey, check out this new film we think you will like!");
+// }
+
+// let person = {
+// name: "fuad",
+// age: 21,
+// county: "nigeria",
+// };
+// function logData() {
+// console.log(
+// person.name +
+// " is " +
+// person.age +
+// " years old he lives in " +
+// person.county
+// );
+// }
+// logData();
+
+// let age = "";
+//
+// function checkAge(age) {
+// if (age < 6) {
+// return "free";
+// } else if (age < 18) {
+// return "child discount";
+// } else if (age < 27) {
+// return "student discount";
+// } else if (age < 67) {
+// return "full price";
+// } else {
+// return "senior citizen discount";
+// }
+// }
+// console.log(checkAge(5));
+
+// let largeCountries = ["China", "India", "USA", "Indonesia", "Pakistan"];
+// console.log("Top Five Largest Countries in the World")
+// for (let i = 0; i < largeCountries.length; i++) {
+// console.log("- " + largeCountries[i]);
+// }
+//
+
+let largeCountries = ["Tuvalu", "India", "USA", "Indonesia", "Monaco"];
+largeCountries.pop();
+largeCountries.push("Pakistan");
+largeCountries.shift();
+largeCountries.unshift("China");
+
+console.log(largeCountries);
+
+let hands = ["rock", "paper", "scissor"];
+let randomElement = hands[Math.floor(Math.random() * hands.length) ]
+console.log(randomElement)
