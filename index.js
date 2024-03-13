@@ -183,7 +183,7 @@ function renderGame() {
   }
   sumEl.textContent = "Sum: " + sum;
   if (sum <= 20) {
-    message = "Do you want to draw a new card?";
+    message = "Would you like to draw a new card?";
   } else if (sum === 21) {
     message = "You've got Blackjack!";
     hasBlackJack = true;
@@ -279,5 +279,5 @@ largeCountries.unshift("China");
 console.log(largeCountries);
 
 let hands = ["rock", "paper", "scissor"];
-let randomElement = hands[Math.floor(Math.random() * hands.length) ]
-console.log(randomElement)
+let randomElement = hands[Math.floor(Math.random() * hands.length)];
+console.log(randomElement);
