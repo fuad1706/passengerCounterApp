@@ -188,7 +188,7 @@ function renderGame() {
     message = "You have got Blackjack!";
     hasBlackJack = true;
   } else {
-    message = "You are out of the game!";
+    message = "You are extremely out of the game!";
     isAlive = false;
   }
   messageEl.textContent = message;
